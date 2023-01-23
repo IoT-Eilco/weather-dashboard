@@ -8,6 +8,8 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { environment } from '../environment/environment'
+import { NgxGaugeModule } from 'ngx-gauge';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { environment } from '../environment/environment'
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFirestoreModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    NgxGaugeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

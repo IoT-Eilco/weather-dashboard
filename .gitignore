@@ -1,4 +1,7 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
+#environment.ts
+/src/environment/*
+!/src/environment/environment.example.ts
 
 # Compiled output
 /dist
@@ -41,6 +44,4 @@ testem.log
 .DS_Store
 Thumbs.db
 
-#environment.ts
-/src/environment/*
-!/src/environment/environment.example.ts
+
