@@ -1,14 +1,12 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { AngularFireStorageModule } from '@angular/fire/compat/storage';
-import { environment } from '../environment/environment'
-import { NgxGaugeModule } from 'ngx-gauge';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {NgxGaugeModule} from 'ngx-gauge';
+import {initializeApp, provideFirebaseApp} from "@angular/fire/app";
+import {environment} from "../environment/environment";
+import {getDatabase, provideDatabase} from "@angular/fire/database";
 
 
 @NgModule({
@@ -18,13 +16,12 @@ import { NgxGaugeModule } from 'ngx-gauge';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule,
-    AngularFirestoreModule,
-    AngularFireStorageModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideDatabase(() => getDatabase()),
     NgxGaugeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
