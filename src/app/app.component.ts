@@ -7,7 +7,7 @@ import {Observable} from "rxjs";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
-  title = 'Projet-angular';
+  title = 'Weather Dashboard';
   item: Observable<any>;
 
   constructor(private db: AngularFireDatabase) {
