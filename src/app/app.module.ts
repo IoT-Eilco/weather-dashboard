@@ -7,7 +7,7 @@ import {NgxGaugeModule} from 'ngx-gauge';
 import {initializeApp, provideFirebaseApp} from "@angular/fire/app";
 import {environment} from "../environment/environment";
 import {getDatabase, provideDatabase} from "@angular/fire/database";
-
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,8 @@ import {getDatabase, provideDatabase} from "@angular/fire/database";
     AppRoutingModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideDatabase(() => getDatabase()),
-    NgxGaugeModule
+    NgxGaugeModule,
+    NgxChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

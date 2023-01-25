@@ -8,6 +8,14 @@ export interface Sensors<T> {
   sensor2: T;
 }
 
+export interface Series {
+  name: string
+  value: number
+}
 
+export interface LineData<T> {
+  name: string
+  series: T[]
+}
 
 

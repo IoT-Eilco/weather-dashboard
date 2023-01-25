@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {DatabaseService} from "./services/database.service";
-import {Observable, Subscription} from "rxjs";
-import {Record, Sensors} from "./models/live_record";
+import {Subscription} from "rxjs";
+import {LineData, Record, Sensors, Series} from "./models/live_record";
 
 @Component({
   selector: 'app-root',
@@ -11,15 +11,18 @@ import {Record, Sensors} from "./models/live_record";
 export class AppComponent implements OnInit, OnDestroy {
   data: Sensors<Record> | undefined;
   subscription: Subscription | undefined;
-  title = 'Weather Dashboard';
-  gaugeType = "semi";
-  gaugeValue = 17;
-  gaugeLabel = "Temperature";
+  shownData: Record = { temp: 0, hum: 0 };
+  gaugeLabel = "Température";
   gaugeAppendText = "°C";
-  thresholdConfig = {
-    '0': {color: 'blue'},
-    '15': {color: 'orange'},
-    '30': {color: 'red'}
+  tempThresholdConfig = {
+    '0': {color: '#003cff'},
+    '22': {color: '#ff7f00'},
+    '30': {color: '#f50000'}
+  };
+  humThresholdConfig = {
+    '0': {color: '#8ae4f5'},
+    '50': {color: '#00deff'},
+    '80': {color: '#007281'}
   };
   markers = {
     "0": {color: "white", type: "line", label: "0", size: 3},
@@ -40,6 +43,23 @@ export class AppComponent implements OnInit, OnDestroy {
     "50": {color: "white", type: "triangle", size: 6, label: "Average"}
   }
 
+  view: [number, number] = [900, 550];
+  lineData: LineData<Series>[] = [
+    {
+      name: 'Température',
+      series: []
+    },
+    {
+      name: 'Humidité',
+      series: []
+    }]
+  gradient = false;
+  showLegend = true;
+
+  colorScheme: any = {
+    domain: ['#f50000', '#009bb0']
+  };
+
   constructor(private db: DatabaseService) {
   }
 
@@ -49,11 +69,27 @@ export class AppComponent implements OnInit, OnDestroy {
     this.subscription = this.db.readSync<Record>([sensor1, sensor2]).subscribe((value) => {
       this.data = {sensor1: value[0], sensor2: value[1]};
       console.log(this.data);
+      this.shownData = this.measureMean(value[0], value[1])
+      this.appendToLine()
     })
   }
 
   ngOnDestroy() {
     this.subscription?.unsubscribe();
+  }
+
+  measureMean(sen1: Record, sen2: Record): Record {
+    return { temp: +((sen1.temp + sen2.temp)/2).toFixed(1) , hum: +((sen1.hum + sen2.hum)/2).toFixed(1) }
+  }
+
+  appendToLine() {
+    this.lineData[0].series.push({name: (this.lineData[0].series.length + 1).toString(), value: this.shownData.temp })
+    this.lineData[1].series.push({name: (this.lineData[1].series.length + 1).toString(), value: this.shownData.hum })
+    this.lineData = [ ...this.lineData ]
+  }
+
+  onSelect(event: any) {
+    console.log(this.lineData);
   }
 
 }
