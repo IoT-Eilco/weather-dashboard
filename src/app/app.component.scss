@@ -1,0 +1,138 @@
+.dark {
+  /**
+     * Backgrounds
+     */
+  $color-bg-darkest: #fff;
+  $color-bg-darker: #fff;
+  $color-bg-dark: #232837;
+  $color-bg-med: #2f3646;
+  $color-bg-light: #455066;
+  $color-bg-lighter: #5b6882;
+
+  /**
+     * Text
+     */
+  $color-text-dark: #fff;
+  $color-text-med-dark: #fff;
+  $color-text-med: #fff;
+  $color-text-med-light: #d9dce1;
+  $color-text-light: #f0f1f6;
+  $color-text-lighter: #fff;
+
+  background: #fff;
+
+  .ngx-charts {
+
+    text {
+      fill: #fff;
+    }
+
+    .tooltip-anchor {
+      fill: rgb(255, 255, 255);
+    }
+
+    .gridline-path {
+      stroke: #fff;
+    }
+
+    .refline-path {
+      stroke: $color-bg-light;
+    }
+
+    .reference-area {
+      fill: #fff;
+    }
+
+    .grid-panel {
+      &.odd {
+        rect {
+          fill: rgba(255, 255, 255, 0.05);
+        }
+      }
+    }
+
+    .force-directed-graph {
+      .edge {
+        stroke: $color-bg-light;
+      }
+    }
+
+    .number-card {
+      p {
+        color: $color-text-light;
+      }
+    }
+
+    .gauge {
+      .background-arc {
+        path {
+          fill: #fff;
+        }
+      }
+
+      .gauge-tick {
+        path {
+          stroke: $color-text-med;
+        }
+
+        text {
+          fill: #fff;
+        }
+      }
+    }
+
+    .linear-gauge {
+      .background-bar {
+        path {
+          fill: #fff;
+        }
+      }
+
+      .units {
+        fill: $color-text-dark;
+      }
+    }
+
+  }
+
+  .chart-legend {
+
+
+    .legend-item {
+      &:hover {
+        color: #fff;
+      }
+    }
+
+    .legend-label {
+      &:hover {
+        color: #fff !important;
+      }
+
+      .active {
+        .legend-label-text {
+          color: #fff !important;
+        }
+      }
+    }
+
+    .scale-legend-label {
+      color: $color-text-med;
+    }
+  }
+
+  .advanced-pie-legend {
+    color: $color-text-med;
+
+    .legend-item {
+      &:hover {
+        color: #fff !important;
+      }
+    }
+  }
+
+  .number-card .number-card-label {
+    font-size: 0.8em;
+    color: $color-text-med;
+  }
+}

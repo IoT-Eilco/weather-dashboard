@@ -13,6 +13,7 @@
     <div class="w-full min-h-screen lg:w-1/2 text-white flex flex-col items-center space-y-12">
         <h6 class="text-green-400 p-2 text-lg">Statistiques</h6>
         <ngx-charts-line-chart
+
           [view]="view"
           [animations]="true"
           [scheme]="colorScheme"
@@ -29,8 +30,7 @@
           [timeline]="true"
           [roundDomains]="true"
           [autoScale]="true"
-        >
+          style="fill: #fff;">
         </ngx-charts-line-chart>
-
     </div>
 </div>
