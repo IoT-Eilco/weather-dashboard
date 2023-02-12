@@ -46,11 +46,11 @@ export class AppComponent implements OnInit, OnDestroy {
   view: [number, number] = [900, 550];
   lineData: LineData<Series>[] = [
     {
-      name: 'Température, Humidité',
+      name: 'Température',
       series: []
     },
     {
-      name: '°C, g.m-3',
+      name: 'Humidité',
       series: []
     }]
   gradient = false;
