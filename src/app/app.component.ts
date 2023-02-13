@@ -69,12 +69,10 @@ export class AppComponent implements OnInit, OnDestroy {
     const sensor2 = 'live_record/sensor2'
     this.subscription = this.db.read<any>('history').subscribe((value) => {
       this.history = Object.keys(value).map((key) => [Number(key), value[key]]);
-      console.log(this.history)
-      console.log(this.history[0].hum_moy)
     })
     this.subscription = this.db.readSync<Record>([sensor1, sensor2]).subscribe((value) => {
       this.data = {sensor1: value[0], sensor2: value[1]};
-      // console.log(this.data);
+      console.log(this.data);
       this.shownData = this.measureMean(value[0], value[1])
       this.appendToLine()
     })
