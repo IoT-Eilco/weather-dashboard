@@ -18,4 +18,8 @@ export interface LineData<T> {
   series: T[]
 }
 
+export interface HistoryElement {
+  hum_moy: string,
+  temp_moy: string
+}
 
