@@ -28,9 +28,9 @@ export class AppComponent implements OnInit, OnDestroy {
   markers = {
     "0": {color: "white", type: "line", label: "0", size: 3},
     "10": {color: "white", type: "line", label: "10", size: 3},
-    "20": {color: "white", type: "line", label: "10", size: 3},
+    "20": {color: "white", type: "line", label: "20", size: 3},
     "30": {color: "white", type: "line", label: "30", size: 3},
-    "40": {color: "white", type: "line", label: "10", size: 3},
+    "40": {color: "white", type: "line", label: "40", size: 3},
     "50": {color: "white", type: "line", label: "50", size: 3},
     "25": {color: "white", type: "triangle", size: 6, label: "Average"}
   }
