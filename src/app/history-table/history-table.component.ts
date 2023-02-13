@@ -14,7 +14,7 @@ export class HistoryTableComponent implements OnInit{
   }
   ngOnInit() {
     this.subscription = this.db.read<any>('history').subscribe((value) => {
-      this.history = Object.keys(value).map((key) => [Number(key), value[key]]).slice(-10);
+      this.history = Object.keys(value).map((key) => [new Date(Number(key)), value[key]]).slice(-10);
     })
   }
 }
