@@ -1,0 +1,6 @@
+{
+  "rules": {
+    ".read": true,  // Saturday, March 4, 2023 4:33:50 PM
+    ".write": "auth.token.email === 'esp@gmail.com'",  // Saturday, March 4, 2023 4:33:50 PM
+  }
+}

@@ -8,10 +8,14 @@ import {initializeApp, provideFirebaseApp} from "@angular/fire/app";
 import {environment} from "../environment/environment";
 import {getDatabase, provideDatabase} from "@angular/fire/database";
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { HistoryTableComponent } from './history-table/history-table.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HistoryTableComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
